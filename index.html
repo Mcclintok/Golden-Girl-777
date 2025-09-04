@@ -1,52 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
+<meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover">
-<title>Golden Girls Shamrock 7s — One-File Edition</title>
+<title>Golden Girls Shamrock 7s — Media-Enabled</title>
 <style>
   :root{
-    --bg:#0e1317;--bg2:#0b1713;--ink:#eaf3f1;--muted:#94aaa6;--acc:#3cf2bf;
-    --panel:#10231d;--panel2:#14342b;--line:#244a3f;--btn:#1c3e35;--btn2:#154037;
-    --cardH:26vh;--gap:10px;--radius:14px;
+    --bg:#0e1317;--ink:#eaf3f1;--muted:#91a6a1;--line:#244a3f;--accent:#3cf2bf;
+    --cardH:26vh;--radius:14px;--gap:10px;
   }
-  *{box-sizing:border-box;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
-  html,body{height:100%}
-  body{
-    margin:0;background:radial-gradient(1200px 800px at 50% -200px,#122922,#0a1612 45%,#08110e);
-    color:var(--ink);font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;
-    display:flex;justify-content:center;min-height:100%;
-  }
+  *{box-sizing:border-box}
+  body{margin:0;background:radial-gradient(1200px 760px at 50% -200px,#122922,#0a1612 45%,#08110e);
+       color:var(--ink);font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;display:flex;justify-content:center}
   .app{width:100%;max-width:920px;padding:12px;display:flex;flex-direction:column;gap:12px}
-  .header{display:flex;align-items:center;justify-content:space-between;gap:10px}
+  .header{display:flex;justify-content:space-between;align-items:center}
   .brand h1{margin:0;font-size:20px;letter-spacing:.3px}
   .brand .sub{font-size:12px;color:var(--muted)}
   .gear{border:1px solid var(--line);background:linear-gradient(180deg,#173930,#102b24);color:#d9f0eb;border-radius:10px;padding:8px 12px;font-weight:800;font-size:12px}
-  .cabinet{
-    background:linear-gradient(180deg,rgba(18,36,29,.85),rgba(13,30,24,.88));
-    border:1px solid #17332b;border-radius:var(--radius);padding:12px;
-    box-shadow:0 18px 60px rgba(0,0,0,.35),inset 0 0 0 1px #203a31;
-    display:flex;flex-direction:column;gap:10px;min-height:0
-  }
-  .screen{position:relative;background:linear-gradient(180deg,#0d1b16,#091712);border:1px solid #163027;border-radius:12px;padding:10px;overflow:hidden}
-  .marquee{
-    position:absolute;top:8px;left:8px;right:8px;height:36px;border:1px solid #204338;border-radius:10px;background:#0a1a15;
-    display:flex;align-items:center;padding:0 10px;font-weight:800;letter-spacing:.3px;color:#d9e9e6;gap:8px;font-size:12px;overflow:hidden
-  }
-  .marquee img{width:22px;height:22px;border-radius:50%;flex:0 0 auto;filter:drop-shadow(0 0 6px rgba(60,242,191,.25))}
-  .marquee span{white-space:nowrap;animation:slide 14s linear infinite}
-  @keyframes slide{from{transform:translateX(0)}to{transform:translateX(-60%)}}
-
+  .cabinet{background:linear-gradient(180deg,rgba(18,36,29,.86),rgba(13,30,24,.88));border:1px solid #17332b;border-radius:var(--radius);padding:12px;
+           box-shadow:0 18px 60px rgba(0,0,0,.35),inset 0 0 0 1px #203a31;display:flex;flex-direction:column;gap:10px}
+  .screen{position:relative;border:1px solid #163027;border-radius:12px;padding:10px;background:linear-gradient(180deg,#0d1b16,#091712);overflow:hidden}
+  .marquee{position:absolute;top:8px;left:8px;right:8px;height:36px;border:1px solid #204338;border-radius:10px;background:#0a1a15;
+           display:flex;align-items:center;padding:0 10px;font-weight:800;letter-spacing:.3px;color:#d9e9e6;gap:8px;font-size:12px;overflow:hidden}
+  .marquee span{white-space:nowrap}
   .hud{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:44px}
   .stat{background:#0f201a;border:1px solid #1e3d34;border-radius:10px;padding:6px 8px}
   .lab{font-size:10px;text-transform:uppercase;color:var(--muted);font-weight:800;letter-spacing:.35px}
   .val{font-family:"JetBrains Mono","Courier New",ui-monospace;font-size:16px;font-weight:900}
-
   .cards{display:grid;grid-template-columns:repeat(5,1fr);gap:var(--gap);margin-top:8px}
-  .card{
-    position:relative;height:var(--cardH);border-radius:12px;background:linear-gradient(180deg,#fff,#f4f9fc);
-    border:2px solid #b6c9d3;box-shadow:0 8px 18px rgba(0,0,0,.22);padding:6px;display:flex;align-items:center;justify-content:center;user-select:none
-  }
+  .card{position:relative;height:var(--cardH);border-radius:12px;background:linear-gradient(180deg,#fff,#f4f9fc);
+        border:2px solid #b6c9d3;box-shadow:0 8px 18px rgba(0,0,0,.22);padding:6px;display:flex;align-items:center;justify-content:center;user-select:none}
   .index{position:absolute;left:6px;top:4px;text-align:center;line-height:1}
   .index .r{font-family:"Cardo","Georgia",serif;font-weight:1000;font-size:18px;color:#0b1f25;text-shadow:0 0 2px #fff}
   .index .s{font-size:14px;color:#0b1f25;text-shadow:0 0 2px #fff}
@@ -55,211 +38,165 @@
   .pip{font-size:22px;text-shadow:0 0 2px #fff}
   .pip.lg{font-size:36px}
   .labels{display:grid;grid-template-columns:repeat(5,1fr);gap:var(--gap);margin-top:4px}
-  .lbl{text-align:center;font-weight:900;border-radius:10px;padding:4px 6px;border:1px solid #cfe1ea;background:#f6fbff;color:#0a1e24;box-shadow:0 2px 8px rgba(0,0,0,.1);font-size:12px}
+  .lbl{text-align:center;font-weight:900;border-radius:10px;padding:4px 6px;border:1px solid #cfe1ea;background:#f6fbff;color:#0a1e24;
+       box-shadow:0 2px 8px rgba(0,0,0,.1);font-size:12px}
   .lbl.hold{background:#ddfaec;border-color:#b9efd7}
   .lbl.discard{background:#ffeaea;border-color:#ffc9c9;color:#5a0e0e}
-
   .utils{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
   .smallbtn{border:1px solid #2a5349;background:linear-gradient(180deg,#173c33,#13342c);color:#d8efe9;padding:10px;border-radius:10px;font-weight:900;font-size:12px}
   .actions{position:sticky;bottom:0;display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
   .btn{border:1px solid #254a41;background:linear-gradient(180deg,#15362e,#0f2a24);color:#e2f4f1;padding:12px;border-radius:12px;font-weight:900;letter-spacing:.2px;font-size:14px}
   .btn.primary{background:linear-gradient(180deg,#1b4e43,#154038);border-color:#2b7a69}
-
-  #bonusRibbon{
-    position:fixed;top:8px;left:50%;transform:translateX(-50%);z-index:120;display:none;
-    padding:10px 16px;border-radius:12px;border:1px solid #2b7a69;background:linear-gradient(180deg,#1b4e43,#154038);
-    color:#eaf8f5;font-weight:1000;letter-spacing:.6px;box-shadow:0 10px 26px rgba(0,0,0,.35)
-  }
+  #bonusRibbon{position:fixed;top:8px;left:50%;transform:translateX(-50%);z-index:120;display:none;padding:10px 16px;border-radius:12px;border:1px solid #2b7a69;background:linear-gradient(180deg,#1b4e43,#154038);color:#eaf8f5;font-weight:1000;letter-spacing:.6px;box-shadow:0 10px 26px rgba(0,0,0,.35)}
   #bonusRibbon.show{display:block;animation:pulse 1.2s ease-in-out 3}
   @keyframes pulse{0%{transform:translateX(-50%) scale(.92)}50%{transform:translateX(-50%) scale(1.06)}100%{transform:translateX(-50%) scale(.98)}}
-
   /* Celebration overlay */
-  #celebrate{position:fixed;inset:0;background:rgba(0,0,0,.86);display:none;align-items:center;justify-content:center;z-index:150}
-  .cele{width:min(700px,96vw);border-radius:16px;border:2px solid #2b7a69;background:radial-gradient(420px 280px at 50% 38%,#123026 0 40%,#0b1f19 70%);padding:14px;position:relative;overflow:hidden;box-shadow:0 22px 64px rgba(0,0,0,.55),inset 0 0 0 1px #3e6b5d}
+  #cele{position:fixed;inset:0;background:rgba(0,0,0,.86);display:none;align-items:center;justify-content:center;z-index:150}
+  .cele-inner{width:min(720px,96vw);border-radius:16px;border:2px solid #2b7a69;background:radial-gradient(420px 280px at 50% 38%,#123026 0 42%,#0b1f19 72%);padding:14px;position:relative;overflow:hidden;box-shadow:0 22px 64px rgba(0,0,0,.55),inset 0 0 0 1px #3e6b5d}
   .cele-title{display:flex;align-items:center;gap:10px;font-weight:1000;letter-spacing:.5px;color:#e8faf3;font-size:18px}
   .cele-quote{margin:8px 0 10px;color:#d4efe6;font-size:14px;min-height:22px}
   .cele-stage{position:relative;aspect-ratio:16/9;background:linear-gradient(180deg,#0c1e19,#0a1714);border:1px solid #255345;border-radius:12px;overflow:hidden;display:grid;place-items:center}
+  video{width:100%;height:100%;object-fit:cover;background:#000}
   .cele-confetti{position:absolute;inset:0;pointer-events:none}
   .cele-btns{margin-top:10px;display:flex;gap:8px}
-  .flash{animation:flash .35s ease-in-out 3}
-  @keyframes flash{0%,100%{filter:none}50%{filter:brightness(1.55) saturate(1.35)}}
-  .shake{animation:shake .45s ease-in-out 2}
-  @keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-4px)}40%{transform:translateX(4px)}60%{transform:translateX(-3px)}80%{transform:translateX(3px)}}
-
-  /* Settings drawer (minimal) */
+  .notice{font-size:12px;color:#a9c7c0;margin-top:6px;text-align:center}
+  /* Settings */
   .sheet{position:fixed;inset:auto 0 0 0;background:#0e1713;border-top:1px solid #28483d;border-radius:16px 16px 0 0;transform:translateY(100%);transition:transform .25s ease;z-index:200;padding:12px}
   .sheet.show{transform:translateY(0)}
   .row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:8px 0}
   .row small{color:var(--muted)}
   .row input[type="range"]{width:210px}
-
-  @media (max-width:560px){
-    :root{--cardH:24vh}
-    .brand h1{font-size:18px}
-    .hud{grid-template-columns:repeat(2,1fr)}
-    .actions{grid-template-columns:1fr 1fr}
-  }
+  @media (max-width:560px){:root{--cardH:24vh}.hud{grid-template-columns:repeat(2,1fr)}.actions{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
-  <div class="app">
-    <div class="header">
-      <div class="brand">
-        <h1>Golden Girls Shamrock 7s</h1>
-        <div class="sub">Deal • Hold • Draw • Hold • Final Draw • Pot Pick Bonus • Wild 7s</div>
-      </div>
-      <button class="gear" id="openSettings">SETTINGS</button>
+<div class="app">
+  <div class="header">
+    <div class="brand">
+      <h1>Golden Girls Shamrock 7s</h1>
+      <div class="sub">Deal • Hold • Draw • Hold • Final Draw • Pot Pick Bonus • Wild 7s</div>
     </div>
-
-    <div class="cabinet">
-      <div class="screen">
-        <div class="marquee"><img id="marqIcon" alt="" src="" style="background:#3cf2bf"><span id="marq">Deal → Hold → Draw → Hold → Final Draw. Tap cards to HOLD.</span></div>
-
-        <div class="hud">
-          <div class="stat"><div class="lab">Credits</div><div class="val" id="credits">—</div></div>
-          <div class="stat"><div class="lab">Bet</div><div class="val" id="bet">1</div></div>
-          <div class="stat"><div class="lab">Last Win</div><div class="val" id="lastwin">0</div></div>
-          <div class="stat"><div class="lab">Jackpot</div><div class="val" id="jackpot">5000</div></div>
-        </div>
-
-        <div class="cards" id="cards"></div>
-        <div class="labels" id="labels"></div>
-        <div id="bonusRibbon">BONUS TRIGGERED</div>
-      </div>
-
-      <div>
-        <div class="utils">
-          <button class="smallbtn" id="betone">BET ONE</button>
-          <button class="smallbtn" id="betmax">BET MAX</button>
-          <button class="smallbtn" id="deal">DEAL</button>
-          <button class="smallbtn" id="add">+200</button>
-          <button class="smallbtn" id="reset">RESET</button>
-        </div>
-        <div class="actions">
-          <button class="btn" id="stand">STAND</button>
-          <button class="btn primary" id="draw">DEAL / DRAW</button>
-          <button class="btn" id="testBonus">TEST BONUS</button>
-        </div>
-      </div>
-    </div>
+    <button class="gear" id="openSettings">SETTINGS</button>
   </div>
 
-  <!-- Celebration overlay (bonus) -->
-  <div id="celebrate">
-    <div class="cele" id="celePanel">
-      <canvas class="cele-confetti" id="confetti"></canvas>
-      <div class="cele-title">BONUS — Golden Moment</div>
-      <div class="cele-quote" id="celeQuote">Stay golden—your bonus awaits.</div>
-      <div class="cele-stage">
-        <div id="pots" style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;width:92%;max-width:520px;margin:10px auto">
-          <!-- Pot choices injected here -->
-        </div>
+  <div class="cabinet">
+    <div class="screen">
+      <div class="marquee"><span id="marq">Deal → Hold → Draw → Hold → Final Draw. Tap cards to HOLD.</span></div>
+
+      <div class="hud">
+        <div class="stat"><div class="lab">Credits</div><div class="val" id="credits">—</div></div>
+        <div class="stat"><div class="lab">Bet</div><div class="val" id="bet">1</div></div>
+        <div class="stat"><div class="lab">Last Win</div><div class="val" id="lastwin">0</div></div>
+        <div class="stat"><div class="lab">Jackpot</div><div class="val" id="jackpot">5000</div></div>
       </div>
-      <div class="cele-btns">
-        <button class="btn" id="closeBonus">Continue</button>
+
+      <div class="cards" id="cards"></div>
+      <div class="labels" id="labels"></div>
+      <div id="bonusRibbon">BONUS TRIGGERED</div>
+    </div>
+
+    <div>
+      <div class="utils">
+        <button class="smallbtn" id="betone">BET ONE</button>
+        <button class="smallbtn" id="betmax">BET MAX</button>
+        <button class="smallbtn" id="deal">DEAL</button>
+        <button class="smallbtn" id="add">+200</button>
+        <button class="smallbtn" id="reset">RESET</button>
+      </div>
+      <div class="actions">
+        <button class="btn" id="stand">STAND</button>
+        <button class="btn primary" id="draw">DEAL / DRAW</button>
+        <button class="btn" id="testBonus">TEST BONUS</button>
       </div>
     </div>
   </div>
+</div>
 
-  <!-- Settings -->
-  <div class="sheet" id="sheet">
-    <div class="row"><strong>Card Size</strong><input type="range" id="cardSize" min="20" max="40" value="26"><small id="cardSizeVal">26vh</small></div>
-    <div class="row"><strong>Master Volume</strong><input type="range" id="vol" min="0" max="100" value="80"><small id="volVal">80%</small></div>
-    <div class="row"><label><input type="checkbox" id="mute"> Mute</label></div>
-    <div class="row"><label><input type="checkbox" id="speak"> Speak Bonus Lines</label><small>Uses device voice</small></div>
+<!-- Celebration overlay -->
+<div id="cele">
+  <div class="cele-inner">
+    <canvas class="cele-confetti" id="confetti"></canvas>
+    <div class="cele-title">BONUS — Golden Moment</div>
+    <div class="cele-quote" id="celeQuote">Stay golden—your bonus awaits.</div>
+    <div class="cele-stage">
+      <video id="bonusVideo" playsinline></video>
+      <div class="notice" id="tapNotice" style="display:none">Tap “Play Bonus” if your browser blocked autoplay audio.</div>
+    </div>
+    <div class="cele-btns">
+      <button class="btn" id="playBonusBtn" style="display:none">Play Bonus</button>
+      <button class="btn" id="closeBonus">Continue</button>
+    </div>
   </div>
+</div>
+
+<!-- Settings -->
+<div class="sheet" id="sheet">
+  <div class="row"><strong>Card Size</strong><input type="range" id="cardSize" min="20" max="40" value="26"><small id="cardSizeVal">26vh</small></div>
+  <div class="row"><strong>Master Volume</strong><input type="range" id="vol" min="0" max="100" value="80"><small id="volVal">80%</small></div>
+  <div class="row"><label><input type="checkbox" id="mute"> Mute</label></div>
+</div>
 
 <script>
 (function(){
-  const $=s=>document.querySelector(s);
-  const byId=id=>document.getElementById(id);
+  const $=s=>document.querySelector(s), byId=id=>document.getElementById(id);
+  const SUITS=["♠","♥","♦","♣"], RANKS=["2","3","4","5","6","7","8","9","10","J","Q","K","A"], RED=new Set(["♥","♦"]);
 
-  /* === Audio (WebAudio, no files required) =============================== */
-  const AC = window.AudioContext||window.webkitAudioContext;
-  const ctx = new AC();
-  const master = ctx.createGain(); master.connect(ctx.destination); master.gain.value=.8;
-  const sfx = ctx.createGain(); sfx.connect(master); sfx.gain.value=1;
-  const bonusBus = ctx.createGain(); bonusBus.connect(master); bonusBus.gain.value=.95;
+  /* ---------- Audio (WebAudio) ---------- */
+  const AC = window.AudioContext||window.webkitAudioContext; const ctx=new AC();
+  const master=ctx.createGain(); master.connect(ctx.destination); master.gain.value=.8;
+  const sfx=ctx.createGain(); sfx.connect(master); sfx.gain.value=1;
+  const bonusGain=ctx.createGain(); bonusGain.connect(master); bonusGain.gain.value=.95;
 
-  function setMasterVol(){const level=+byId('vol').value/100; byId('volVal').textContent=(level*100|0)+'%'; master.gain.value = byId('mute').checked?0:level;}
-  byId('vol').addEventListener('input', setMasterVol);
-  byId('mute').addEventListener('change', setMasterVol);
-  setMasterVol();
+  function setMasterVol(){ const level=+byId('vol').value/100; byId('volVal').textContent=(level*100|0)+'%'; master.gain.value = byId('mute').checked?0:level; }
+  byId('vol').addEventListener('input', setMasterVol); byId('mute').addEventListener('change', setMasterVol); setMasterVol();
 
   function tone(f,d,when=0,type="triangle",bus=sfx){
-    const t0=ctx.currentTime+when;
-    const o=ctx.createOscillator(); const g=ctx.createGain();
+    const t0=ctx.currentTime+when; const o=ctx.createOscillator(), g=ctx.createGain();
     o.type=type; o.frequency.value=f; o.connect(g); g.connect(bus);
-    g.gain.setValueAtTime(.0008,t0);
-    g.gain.exponentialRampToValueAtTime(.9,t0+.015);
-    g.gain.exponentialRampToValueAtTime(.001,t0+d);
+    g.gain.setValueAtTime(.0008,t0); g.gain.exponentialRampToValueAtTime(.9,t0+.015); g.gain.exponentialRampToValueAtTime(.001,t0+d);
     o.start(t0); o.stop(t0+d+.03);
   }
-  const dealSound =()=>[220,260,300,340,380].forEach((f,i)=>tone(f,.05,i*.04,"square"));
-  const drawSound =()=>[300,340,380].forEach((f,i)=>tone(f,.06,i*.05,"square"));
-  const winSound  =()=>[660,880,1100,1320].forEach((f,i)=>tone(f,.11,i*.08,"triangle"));
-  const ring      =()=>[784,880,988,1175,1319].forEach((f,i)=>tone(f,.12,i*.085,"triangle",bonusBus));
-  const fanfare   =()=>{[523,659,784,1046,784,659,523].forEach((f,i)=>tone(f,.12,i*.08,"square",bonusBus));};
+  const dealSound=()=>[220,260,300,340,380].forEach((f,i)=>tone(f,.05,i*.04,"square"));
+  const drawSound=()=>[300,340,380].forEach((f,i)=>tone(f,.06,i*.05,"square"));
+  const winSound =()=>[660,880,1100,1320].forEach((f,i)=>tone(f,.11,i*.08,"triangle"));
+  const ring     =()=>[784,880,988,1175,1319].forEach((f,i)=>tone(f,.12,i*.085,"triangle",bonusGain));
+  const fanfare  =()=>{[523,659,784,1046,784,659,523].forEach((f,i)=>tone(f,.12,i*.08,"square",bonusGain));};
 
-  // Speech (optional)
-  let speakOn=false; byId('speak').addEventListener('change', e=>speakOn=e.target.checked);
-  function speak(text){ if(!speakOn || !('speechSynthesis' in window)) return; speechSynthesis.cancel(); speechSynthesis.speak(new SpeechSynthesisUtterance(text)); }
+  function resumeAudio(){ try{ ctx.resume(); }catch(e){} }
+  ['click','touchstart','keydown'].forEach(ev=>document.addEventListener(ev,resumeAudio,{once:true}));
 
-  /* === Game state ======================================================== */
-  const SUITS=["♠","♥","♦","♣"], RANKS=["2","3","4","5","6","7","8","9","10","J","Q","K","A"];
-  const RED = new Set(["♥","♦"]);
-  let credits= +(localStorage.getItem("gg_credits")||"1000");
-  let bet     = +(localStorage.getItem("gg_bet")||"1");
-  let jackpot = +(localStorage.getItem("gg_jackpot")||"5000");
-  let lastWin = 0;
-  let deck=[], hand=[], holds=[false,false,false,false,false], phase="ready";
-
+  /* ---------- HUD / state ---------- */
+  let credits=+(localStorage.getItem("gg_credits")||"1000"), bet=+(localStorage.getItem("gg_bet")||"1"), jackpot=+(localStorage.getItem("gg_jackpot")||"5000");
+  let lastWin=0, deck=[], hand=[], holds=[false,false,false,false,false], phase="ready";
   function save(){ localStorage.setItem("gg_credits",credits); localStorage.setItem("gg_bet",bet); localStorage.setItem("gg_jackpot",jackpot); }
-  function hud(){ byId('credits').textContent=credits; byId('bet').textContent=bet; byId('lastwin').textContent=lastWin; byId('jackpot').textContent=jackpot; }
-  hud();
+  function hud(){ byId('credits').textContent=credits; byId('bet').textContent=bet; byId('lastwin').textContent=lastWin; byId('jackpot').textContent=jackpot; } hud();
+  function marquee(t){ const el=byId('marq'); el.textContent=t; clearTimeout(marquee._t); marquee._t=setTimeout(()=>el.textContent="Deal → Hold → Draw → Hold → Final Draw. Tap cards to HOLD.",3200); }
 
-  function marquee(text){ const el=byId('marq'); el.textContent=text; clearTimeout(marquee._t); marquee._t=setTimeout(()=>el.textContent="Deal → Hold → Draw → Hold → Final Draw. Tap cards to HOLD.", 3500); }
-
-  function buildDeck(){
-    const d=[]; for(const s of SUITS){ for(const r of RANKS){ d.push({rank:r,suit:s}); } }
-    for(let i=d.length-1;i>0;i--){ const j=(Math.random()*(i+1))|0; [d[i],d[j]]=[d[j],d[i]]; }
-    return d;
-  }
+  function buildDeck(){ const d=[]; for(const s of SUITS){ for(const r of RANKS){ d.push({rank:r,suit:s}); } } for(let i=d.length-1;i>0;i--){ const j=(Math.random()*(i+1))|0; [d[i],d[j]]=[d[j],d[i]]; } return d; }
 
   function renderCard(c){
-    const red=RED.has(c.suit), isWild=(c.rank==="7");
+    const red=RED.has(c.suit), wild=(c.rank==="7");
     const div=document.createElement("div"); div.className="card";
     const tl=document.createElement("div"); tl.className="index tl";
-    tl.innerHTML=`<div class="r" style="color:${red?"#a31616":"#0b1f25"}">${c.rank}</div><div class="s" style="color:${red?"#a31616":"#0b1f25"}">${isWild?"☘":c.suit}</div>`;
+    tl.innerHTML=`<div class="r" style="color:${red?"#a31616":"#0b1f25"}">${c.rank}</div><div class="s" style="color:${red?"#a31616":"#0b1f25"}">${wild?"☘":c.suit}</div>`;
     const br=document.createElement("div"); br.className="index br";
-    br.innerHTML=`<div class="r" style="color:${red?"#a31616":"#0b1f25"}">${c.rank}</div><div class="s" style="color:${red?"#a31616":"#0b1f25"}">${isWild?"☘":c.suit}</div>`;
+    br.innerHTML=`<div class="r" style="color:${red?"#a31616":"#0b1f25"}">${c.rank}</div><div class="s" style="color:${red?"#a31616":"#0b1f25"}">${wild?"☘":c.suit}</div>`;
     const face=document.createElement("div"); face.className="face";
-    const pip=document.createElement("div"); pip.className="pip lg"; pip.textContent=isWild?"☘":c.suit; pip.style.color=red?"#a31616":"#0b1f25";
-    face.appendChild(pip);
-    div.appendChild(tl); div.appendChild(br); div.appendChild(face);
-    return div;
+    const pip=document.createElement("div"); pip.className="pip lg"; pip.textContent=wild?"☘":c.suit; pip.style.color=red?"#a31616":"#0b1f25";
+    face.appendChild(pip); div.appendChild(tl); div.appendChild(br); div.appendChild(face); return div;
   }
 
   function renderHand(){
     const C=byId('cards'), L=byId('labels'); C.innerHTML=""; L.innerHTML="";
-    hand.forEach((c,i)=>{
-      const el=renderCard(c);
-      el.addEventListener('click', ()=>{ if(phase!=="hold1"&&phase!=="hold2")return; holds[i]=!holds[i]; renderHand(); });
-      C.appendChild(el);
-      const lab=document.createElement("div");
-      lab.className="lbl "+(holds[i]?"hold":"discard");
-      lab.textContent=holds[i]?"HOLD":"TAP TO HOLD";
-      lab.addEventListener('click', ()=>{ if(phase!=="hold1"&&phase!=="hold2")return; holds[i]=!holds[i]; renderHand(); });
-      L.appendChild(lab);
-    });
+    hand.forEach((c,i)=>{ const el=renderCard(c); el.addEventListener('click',()=>{ if(phase!=="hold1"&&phase!=="hold2") return; holds[i]=!holds[i]; renderHand(); }); C.appendChild(el);
+      const lab=document.createElement("div"); lab.className="lbl "+(holds[i]?"hold":"discard"); lab.textContent=holds[i]?"HOLD":"TAP TO HOLD";
+      lab.addEventListener('click',()=>{ if(phase!=="hold1"&&phase!=="hold2") return; holds[i]=!holds[i]; renderHand(); }); L.appendChild(lab); });
   }
 
-  /* === Flow: Deal → Hold → Draw → Hold → Final Draw ===================== */
-  function ensureAudio(){ try{ ctx.resume(); }catch(e){} }
+  /* ---------- Flow ---------- */
   function startHand(){
-    if(credits<bet){ marquee("Not enough credits."); speak("Not enough credits."); return; }
-    ensureAudio();
-    credits-=bet; lastWin=0; jackpot+=Math.max(1,(bet*2)|0); save();
+    if(credits<bet){ marquee("Not enough credits."); return; }
+    resumeAudio(); credits-=bet; lastWin=0; jackpot+=Math.max(1,(bet*2)|0); save();
     deck=buildDeck(); hand=[deck.pop(),deck.pop(),deck.pop(),deck.pop(),deck.pop()]; holds=[false,false,false,false,false];
     phase="hold1"; renderHand(); hud(); dealSound(); marquee("Deal. Choose holds.");
   }
@@ -271,186 +208,120 @@
   }
 
   byId('deal').onclick=()=>{ if(phase==="ready"||phase==="scored") startHand(); };
-  byId('draw').onclick=()=>{ if(phase==="ready"||phase==="scored"){ startHand(); }
-                             else if(phase==="hold1"){ doDraw("first"); }
-                             else if(phase==="hold2"){ doDraw("final"); } };
+  byId('draw').onclick=()=>{ if(phase==="ready"||phase==="scored") startHand(); else if(phase==="hold1") doDraw("first"); else if(phase==="hold2") doDraw("final"); };
   byId('stand').onclick=()=>{ if(phase==="hold1"||phase==="hold2") finalize(); };
-
   byId('betone').onclick=()=>{ if(phase!=="ready"&&phase!=="scored")return; bet=(bet%5)+1; hud(); save(); marquee("Bet "+bet); };
   byId('betmax').onclick=()=>{ if(phase!=="ready"&&phase!=="scored")return; bet=5; hud(); save(); marquee("Bet max"); startHand(); };
-  byId('add').onclick   =()=>{ credits+=200; hud(); save(); marquee("Credits +200"); };
-  byId('reset').onclick =()=>{ credits=1000; bet=1; jackpot=5000; lastWin=0; hud(); save(); marquee("Reset"); };
+  byId('add').onclick=()=>{ credits+=200; hud(); save(); marquee("Credits +200"); };
+  byId('reset').onclick=()=>{ credits=1000; bet=1; jackpot=5000; lastWin=0; hud(); save(); marquee("Reset"); };
 
-  /* === Scoring with wild 7s (heuristic, fun-first) ======================= */
+  /* ---------- Scoring (wild 7s heuristic) ---------- */
   function scoreHand(cards){
-    // Treat 7s as wild. Heuristic best-fit for common hands (good for gameplay, not a perfect solver).
+    const RMAP={"A":14,"K":13,"Q":12,"J":11,"10":10,"9":9,"8":8,"7":0,"6":6,"5":5,"4":4,"3":3,"2":2};
     const ranks=cards.map(c=>c.rank), suits=cards.map(c=>c.suit);
-    const wilds=ranks.filter(r=>r==="7").length;
-    const baseRanks=ranks.filter(r=>r!=="7");
-    const counts={}; baseRanks.forEach(r=>counts[r]=(counts[r]||0)+1);
+    const wilds=ranks.filter(r=>"7"===r).length, base=ranks.filter(r=>r!=="7");
+    const counts={}; base.forEach(r=>counts[r]=(counts[r]||0)+1);
     const maxCount=Math.max(0,...Object.values(counts));
     const suitCounts={}; suits.forEach(s=>suitCounts[s]=(suitCounts[s]||0)+1);
     const bestSuit=Object.keys(suitCounts).sort((a,b)=>suitCounts[b]-suitCounts[a])[0]||"♠";
     const flushPossible=(suitCounts[bestSuit]+wilds>=5);
-
-    // Straight check with wilds (gap fill)
-    const RMAP={"A":14,"K":13,"Q":12,"J":11,"10":10,"9":9,"8":8,"7":0,"6":6,"5":5,"4":4,"3":3,"2":2};
-    const ranksNum=baseRanks.map(r=>RMAP[r]).sort((a,b)=>a-b);
-    function canStraight(nums, wild){
-      // Allow A as 1 (for A-2-3-4-5)
-      const uniq=[...new Set(nums)];
-      const candidates = [];
-      if(uniq.includes(14)) candidates.push(1,14); else candidates.push(...uniq);
-      const arr = [...new Set(candidates)].sort((a,b)=>a-b);
-      for(let start=2-4; start<=10; start++){
-        let need=0;
-        for(let x=0;x<5;x++){ const v=start+x; if(!arr.includes(v) && !(v===1 && arr.includes(14))) need++; }
-        if(need<=wild) return true;
-      }
-      // High straight tries (10-J-Q-K-A)
-      for(let start=10; start<=14; start++){
-        let need=0;
-        for(let x=0;x<5;x++){ const v=start+x; if(!arr.includes(v)) need++; }
-        if(need<=wild) return true;
-      }
-      return false;
-    }
-    const straightPossible=canStraight(ranksNum,wilds);
-
-    // Kinds with wilds
-    const fourKind = (maxCount+wilds>=4);
-    const threeKind= (maxCount+wilds>=3);
+    const nums=base.map(r=>RMAP[r]).sort((a,b)=>a-b);
+    function canStraight(ns,w){ const u=[...new Set(ns)]; for(let start=2-4; start<=10; start++){ let need=0; for(let x=0;x<5;x++){ const v=start+x; if(!u.includes(v)&&(v!==1||!u.includes(14))) need++; } if(need<=w) return true; } return false; }
+    const straight=canStraight(nums,wilds);
+    const four=(maxCount+wilds>=4), three=(maxCount+wilds>=3);
     const pairs=Object.keys(counts).filter(k=>counts[k]===2).length;
-    const hasTwoPair = (pairs + (wilds>0?1:0))>=2; // wild can complete second pair
-    const fullHouse  = (threeKind && (pairs>0 || wilds>0));
-
-    // Top hands (approx)
-    const royalLike = straightPossible && flushPossible; // treat any 10-A straight flush as top for fun
-    if(royalLike) return {name:"Straight Flush", mult: (bet>=5?250:200)}; // keeps it exciting
-    if(fourKind)  return {name:"Four of a Kind", mult: 50};
-    if(fullHouse) return {name:"Full House", mult: 10};
-    if(flushPossible) return {name:"Flush", mult: 7};
-    if(straightPossible) return {name:"Straight", mult: 5};
-    if(threeKind) return {name:"Three of a Kind", mult: 3};
-    if(hasTwoPair) return {name:"Two Pair", mult: 2};
-    // Jacks or Better (with wild assisting)
-    const highRanks = new Set(["A","K","Q","J"]);
-    const highPairs = Object.keys(counts).some(r=>counts[r]===2 && highRanks.has(r));
-    if(highPairs || (wilds>0 && Object.values(counts).some(v=>v===1 && highRanks.has(Object.keys(counts).find(k=>counts[k]===1))))) {
-      return {name:"Jacks or Better", mult: 1};
-    }
-    return {name:"No Win", mult: 0};
+    const twoPair=(pairs+(wilds>0?1:0))>=2;
+    const highPairs = Object.keys(counts).some(r=>counts[r]===2 && ["A","K","Q","J"].includes(r));
+    if(straight&&flushPossible) return {name:"Straight Flush",mult:(bet>=5?250:200)};
+    if(four)  return {name:"Four of a Kind",mult:50};
+    if(three && (pairs>0||wilds>0)) return {name:"Full House",mult:10};
+    if(flushPossible) return {name:"Flush",mult:7};
+    if(straight) return {name:"Straight",mult:5};
+    if(three) return {name:"Three of a Kind",mult:3};
+    if(twoPair) return {name:"Two Pair",mult:2};
+    if(highPairs || (wilds>0 && Object.keys(counts).length>0)) return {name:"Jacks or Better",mult:1};
+    return {name:"No Win",mult:0};
   }
 
   function finalize(){
     phase="scored";
-    const res = scoreHand(hand);
-    let win = res.mult*bet;
-    // Progressive nudge on max bet + strong hand
-    if(res.name==="Straight Flush" && bet===5){ win = Math.max(win, jackpot); jackpot = 5000; } else { jackpot += Math.max(1, (bet/2)|0); }
-    lastWin = win; credits += win; hud(); save();
-
-    if(win>0){ marquee(res.name+" +"+win); winSound(); }
-    else { marquee("No win. Try again."); }
-
-    // Bonus frequency (fun-first demo): ~35% chance OR guaranteed if big hand
-    const trigger = (Math.random()<0.35) || (res.mult>=7);
-    if(trigger){ showRibbon(); setTimeout(showBonus, 420); }
+    const res=scoreHand(hand); let win=res.mult*bet;
+    if(res.name==="Straight Flush" && bet===5){ win=Math.max(win,jackpot); jackpot=5000; } else { jackpot += Math.max(1,(bet/2)|0); }
+    lastWin=win; credits+=win; hud(); save();
+    if(win>0){ marquee(res.name+" +"+win); winSound(); } else { marquee("No win."); }
+    const trigger=(Math.random()<0.35)||(res.mult>=7);
+    if(trigger){ showRibbon(); setTimeout(showBonus,420); }
   }
 
-  /* === Bonus: Pot Pick with confetti + lines ============================ */
-  const RIB=byId('bonusRibbon');
-  function showRibbon(){ RIB.classList.add('show'); setTimeout(()=>RIB.classList.remove('show'), 1600); }
+  /* ---------- Bonus: play random clip + audio from CLIPS.json ---------- */
+  const RIB=byId('bonusRibbon'), CELE=$("#cele"), V=byId('bonusVideo'), tapNotice=byId('tapNotice'), playBtn=byId('playBonusBtn');
+  function showRibbon(){ RIB.classList.add('show'); setTimeout(()=>RIB.classList.remove('show'),1600); }
 
-  const GG_LINES = [
-    // Original, short, Golden-Girls-style quips (not direct quotes)
-    "Dorothy: Dry wit engaged. Let’s make this worth your while.",
-    "Rose: Back in St. Olaf—never mind, pick a lucky pot!",
-    "Blanche: Sugar, fortune favors the fabulous.",
-    "Sophia: Picture it: Miami. You, a bonus, and confetti."
-  ];
-
-  function confettiBurst(canvas, ms=2400){
-    const c=canvas, x=c.getContext('2d'); const W=c.width=c.clientWidth, H=c.height=c.clientHeight; const N=160;
+  function confettiBurst(canvas,ms=2400){
+    const c=canvas, x=c.getContext('2d'), W=c.width=c.clientWidth, H=c.height=c.clientHeight, N=160;
     const bits=[...Array(N)].map(()=>({x:Math.random()*W,y:-20-Math.random()*H*.4,r:3+Math.random()*6,vx:(Math.random()*2-1)*1.4,vy:2+Math.random()*2,a:Math.random()*Math.PI*2,va:(Math.random()-.5)*.4,col:`hsl(${(Math.random()*360)|0},82%,62%)`}));
     let t0; (function loop(t){ if(!t0) t0=t; const dt=t-t0; x.clearRect(0,0,W,H);
-      bits.forEach(b=>{ b.x+=b.vx; b.y+=b.vy; b.vy+=.02; b.a+=b.va; x.save(); x.translate(b.x,b.y); x.rotate(b.a); x.fillStyle=b.col; x.fillRect(-b.r/2,-b.r/2,b.r,b.r); x.restore();});
+      bits.forEach(b=>{ b.x+=b.vx; b.y+=b.vy; b.vy+=.02; b.a+=b.va; x.save(); x.translate(b.x,b.y); x.rotate(b.a); x.fillStyle=b.col; x.fillRect(-b.r/2,-b.r/2,b.r,b.r); x.restore(); });
       if(dt<ms) requestAnimationFrame(loop);
     })(performance.now());
   }
 
-  const CELE = byId('celebrate'), CELEP=byId('celePanel'), POTS=byId('pots'), CELEQ=byId('celeQuote');
-  function showBonus(){
-    // Build three pots with hidden prizes (multipliers of bet or flat)
-    ring(); fanfare(); speak(GG_LINES[(Math.random()*GG_LINES.length)|0]);
-    CELEQ.textContent = GG_LINES[(Math.random()*GG_LINES.length)|0];
-
-    const base = Math.max(bet, 1);
-    const prizes = [
-      {label:"🍯 Pot A", value: base * [5,8,10,12][(Math.random()*4)|0]},
-      {label:"🍯 Pot B", value: base * [3,6,9,15][(Math.random()*4)|0]},
-      {label:"🍯 Pot C", value: base * [2,4,7,20][(Math.random()*4)|0]},
-    ];
-    // Shuffle to keep mystery
-    for(let i=prizes.length-1;i>0;i--){ const j=(Math.random()*(i+1))|0; [prizes[i],prizes[j]]=[prizes[j],prizes[i]]; }
-
-    POTS.innerHTML="";
-    prizes.forEach((p,idx)=>{
-      const btn=document.createElement('button');
-      btn.className="btn";
-      btn.style.cssText="padding:14px;border-radius:12px;background:linear-gradient(180deg,#215447,#174237);border:1px solid #2d7d6c;color:#eafff9;font-weight:1000";
-      btn.textContent=p.label+" — PICK";
-      btn.onclick=()=>{ reveal(idx,p.value); };
-      POTS.appendChild(btn);
-    });
-
-    CELE.style.display="flex"; CELEP.classList.add('flash','shake');
-    setTimeout(()=>CELEP.classList.remove('flash','shake'), 900);
-    confettiBurst(byId('confetti'), 2800);
+  async function getManifest(){
+    try{ const r=await fetch('CLIPS.json',{cache:'no-store'}); if(!r.ok) return null; return await r.json(); }
+    catch(e){ return null; }
   }
 
-  function reveal(i, prize){
-    // Grant prize, update HUD, fun flash
-    credits += prize; lastWin += prize; hud(); save();
-    CELEQ.textContent = `You found +${prize} credits!`;
-    winSound(); confettiBurst(byId('confetti'), 2200);
+  async function showBonus(){
+    ring(); fanfare();
+    CELE.style.display="flex";
+    confettiBurst(byId('confetti'),2800);
+    tapNotice.style.display="none"; playBtn.style.display="none";
+    V.pause(); V.removeAttribute('src'); V.load();
+
+    const m = await getManifest();
+    if(!m || !Array.isArray(m.clips) || m.clips.length===0){
+      byId('celeQuote').textContent="Bonus! (Add videos to /clips and list them in CLIPS.json)";
+      return;
+    }
+    const clip = m.clips[(Math.random()*m.clips.length)|0];
+    const aud  = (m.audio && m.audio.length)? m.audio[(Math.random()*m.audio.length)|0] : null;
+
+    V.src = 'clips/'+clip;
+    let audioEl = null, audioNode = null;
+    if(aud){ audioEl = new Audio('audio/'+aud); try{ audioNode = ctx.createMediaElementSource(audioEl); audioNode.connect(bonusGain); }catch(e){} }
+
+    const tryPlay = async ()=>{
+      try{
+        await V.play();
+        if(audioEl){ audioEl.currentTime=0; await audioEl.play(); }
+      }catch(err){
+        tapNotice.style.display="block"; playBtn.style.display="inline-block";
+      }
+    };
+
+    V.onplay = ()=>{ /* synced start already handled in tryPlay */ };
+    V.onloadeddata = ()=>{ tryPlay(); };
   }
 
-  byId('closeBonus').onclick=()=>{ CELE.style.display="none"; };
+  byId('closeBonus').onclick=()=>{ if(V){ try{V.pause();}catch(e){} } CELE.style.display="none"; };
+  byId('playBonusBtn').onclick=async()=>{ try{ await V.play(); const m=await getManifest(); if(m&&m.audio&&m.audio.length){ const aud=m.audio[(Math.random()*m.audio.length)|0]; const a=new Audio('audio/'+aud); const node=ctx.createMediaElementSource(a); node.connect(bonusGain); await a.play(); } playBtn.style.display="none"; tapNotice.style.display="none"; }catch(e){} };
 
-  /* === Settings & card sizing ========================================== */
+  /* ---------- Settings ---------- */
   byId('openSettings').onclick=()=> byId('sheet').classList.toggle('show');
   byId('cardSize').addEventListener('input', e=>{ document.documentElement.style.setProperty('--cardH', e.target.value+'vh'); byId('cardSizeVal').textContent=e.target.value+'vh'; });
 
-  /* === Init placeholders =============================================== */
-  function paintPlaceholders(){
+  /* ---------- Boot placeholders ---------- */
+  (function paintPlaceholders(){
     const C=byId('cards'), L=byId('labels'); C.innerHTML=""; L.innerHTML="";
     for(let i=0;i<5;i++){
       const div=document.createElement('div'); div.className='card';
       div.innerHTML='<div class="index tl"><div class="r">?</div><div class="s">?</div></div><div class="index br"><div class="r">?</div><div class="s">?</div></div><div class="face"><div class="pip lg">♠</div></div>';
-      C.appendChild(div);
-      const lab=document.createElement('div'); lab.className='lbl discard'; lab.textContent='TAP TO HOLD'; L.appendChild(lab);
+      C.appendChild(div); const lab=document.createElement('div'); lab.className='lbl discard'; lab.textContent='TAP TO HOLD'; L.appendChild(lab);
     }
-  }
-  paintPlaceholders();
+  })();
 
-  /* === Bonus test button =============================================== */
+  /* ---------- Buttons ---------- */
   byId('testBonus').onclick=()=>{ showRibbon(); setTimeout(showBonus,420); };
-
-  /* === Wire main buttons =============================================== */
-  byId('deal').addEventListener('click',()=>{ if(phase==="ready"||phase==="scored") startHand(); });
-  byId('draw').addEventListener('click',()=>{ if(phase==="ready"||phase==="scored") startHand(); else if(phase==="hold1") doDraw("first"); else if(phase==="hold2") doDraw("final"); });
-  byId('stand').addEventListener('click',()=>{ if(phase==="hold1"||phase==="hold2") finalize(); });
-
-  // Show card holds on click
-  byId('cards').addEventListener('click',()=>{ /* handled per-card in renderHand */ });
-
-  // Kick off marquee icon color
-  byId('marqIcon').style.background='#3cf2bf';
-
-  // First-time audio resume on user interaction
-  ['click','touchstart','keydown'].forEach(ev=>document.addEventListener(ev,()=>{ try{ctx.resume()}catch(e){} },{once:true}));
-
 })();
 </script>
 </body>
