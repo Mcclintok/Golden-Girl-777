@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Golden Girls Shamrock 7s</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <style>
+    body { background:#0e1317; color:#fff; font-family:sans-serif; text-align:center; margin:0; padding:2rem; }
+    h1 { color:gold; }
+    button { background:#3cf2bf; border:none; padding:1rem 2rem; margin:1rem; border-radius:8px; font-size:1.2rem; font-weight:bold; cursor:pointer; }
+    .bonus { margin-top:2rem; font-size:1.2rem; color:gold; }
+  </style>
+</head>
+<body>
+  <h1>Golden Girls Shamrock 7s</h1>
+  <p>Simple test version. Click the buttons to simulate play.</p>
+  <button onclick="deal()">🎰 DEAL</button>
+  <button onclick="draw()">♠️ DRAW</button>
+  <div id="status"></div>
+  <div class="bonus" id="bonus"></div>
+
+  <script>
+    function deal() {
+      document.getElementById('status').textContent = "Dealing cards...";
+      document.getElementById('bonus').textContent = "";
+    }
+    function draw() {
+      const quotes = [
+        "Dorothy: Go to sleep, sweetheart. Pray for brains.",
+        "Rose: Back in St. Olaf...",
+        "Blanche: Eat dirt and die, trash!",
+        "Sophia: Picture it, Miami..."
+      ];
+      const pick = quotes[Math.floor(Math.random() * quotes.length)];
+      document.getElementById('status').textContent = "Drawing cards...";
+      document.getElementById('bonus').textContent = "✨ BONUS: " + pick;
+    }
+  </script>
+</body>
+</html>
+
