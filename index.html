@@ -1,11 +1,73 @@
 <!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Golden Girls Shamrock 7s</title>
-  </head>
-  <body style="background:#0e1317; color:#fff; text-align:center; font-family:sans-serif;">
-    <h1>Golden Girls Shamrock 7s</h1>
-    <p>If you see this page, GitHub Pages is working!</p>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Golden Girls Shamrock 7s</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background: #0e1317;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #222;
+      padding: 1rem;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    main {
+      padding: 2rem;
+    }
+    button {
+      background: #28a745;
+      color: #fff;
+      border: none;
+      padding: 1rem 2rem;
+      margin: 1rem;
+      font-size: 1.2rem;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #218838;
+    }
+    .bonus {
+      margin-top: 2rem;
+      font-size: 1.2rem;
+      color: gold;
+    }
+  </style>
+</head>
+<body>
+  <header>Golden Girls Shamrock 7s</header>
+  <main>
+    <p>Welcome to the browser version of the game!</p>
+    <button onclick="deal()">DEAL</button>
+    <button onclick="draw()">DRAW</button>
+    <div id="status"></div>
+    <div class="bonus" id="bonus"></div>
+  </main>
+  <script>
+    function deal() {
+      document.getElementById('status').textContent = "🎰 Dealing cards...";
+      document.getElementById('bonus').textContent = "";
+    }
+    function draw() {
+      document.getElementById('status').textContent = "♠️ Drawing final hand...";
+      // Trigger a random Golden Girls bonus
+      const quotes = [
+        "Dorothy: 'Go to sleep, sweetheart. Pray for brains.'",
+        "Rose: 'Back in St. Olaf...'",
+        "Blanche: 'Eat dirt and die, trash!'",
+        "Sophia: 'Picture it... Sicily, 1922.'"
+      ];
+      const pick = quotes[Math.floor(Math.random() * quotes.length)];
+      document.getElementById('bonus').textContent = "✨ BONUS: " + pick;
+    }
+  </script>
+</body>
 </html>
